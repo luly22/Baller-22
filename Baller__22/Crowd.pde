@@ -5,18 +5,24 @@ class Crowd {
   int x;
   int y;
   Team teamScored;
+  color jerseyColor;
   
   Crowd(Team h, Team a){
     this.homeTeam = h;
     this.awayTeam = a;
   }
   
-  void drawCrowd() {
+  void initialCrowd() {
    x = 0;
    for (int i = 0; i < 20; i++){
      y = 0;
      for (int j = 0; j < 8; j++){
-       fill(this.homeTeam);
+       int rand = round(random(1,2));
+       if (rand == 1)
+         jerseyColor = this.homeTeam.jerseyColor;
+       else
+         jerseyColor = this.awayTeam.jerseyColor;
+       fill(jerseyColor);
        square(x,y, 25);
        y += 25;
      }
@@ -26,7 +32,7 @@ class Crowd {
   
   
   void teamScores() {
-    if (teamScored == favTeam)
+    if (teamScored == homeTeam)
      y += 2;
   }
 }

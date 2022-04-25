@@ -1,11 +1,16 @@
 int homeScore;
 int awayScore;
+color rapColor = color(0,0,255);
+color sixColor = color(255,0,0);
 
-Crowd c = new Crowd(255, (0, 0, 255));
+Team raptors = new Team("Toronto Raptors", rapColor);
+Team sixers = new Team("76ers", sixColor);
+
+Crowd c = new Crowd(raptors, sixers);
 
 void setup() {
   size(800,600);
-  
+  c.initialCrowd();
   
 }
 
@@ -13,7 +18,7 @@ void draw(){
   fill(255, 234, 143);
   rect(0,200, 800, 600);
   scoreBoard();
-  c.drawCrowd();
+  
   
 }
 
