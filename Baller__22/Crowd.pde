@@ -5,11 +5,12 @@ class Crowd {
   int x;
   int y;
   Team teamScored;
-  color jerseyColor;
+  color jerseyColor[][];
   
   Crowd(Team h, Team a){
     this.homeTeam = h;
     this.awayTeam = a;
+    jerseyColor = new color[20][8];
   }
   
   void initialCrowd() {
@@ -19,10 +20,10 @@ class Crowd {
      for (int j = 0; j < 8; j++){
        int rand = round(random(1,2));
        if (rand == 1)
-         jerseyColor = this.homeTeam.jerseyColor;
+         jerseyColor[i][j] = this.homeTeam.jerseyColor;
        else
-         jerseyColor = this.awayTeam.jerseyColor;
-       fill(jerseyColor);
+         jerseyColor[i][j] = this.awayTeam.jerseyColor;
+       fill(jerseyColor[i][j]);
        square(x,y, 25);
        y += 25;
      }
@@ -30,6 +31,20 @@ class Crowd {
    }
   }
   
+  
+  void resetCrowd() {
+    x = 0;
+   for (int i = 0; i < 20; i++){
+     y = 0;
+     for (int j = 0; j < 8; j++){
+       fill(jerseyColor[i][j]);
+       square(x,y, 25);
+       y += 25;
+     }
+     x += 25;
+   }
+  }
+    
   
   void teamScores() {
     if (teamScored == homeTeam)

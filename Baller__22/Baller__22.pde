@@ -15,9 +15,11 @@ void setup() {
 }
 
 void draw(){
-  fill(255, 234, 143);
-  rect(0,200, 800, 600);
+  drawCourt();
   scoreBoard();
+  
+  c.teamScores();
+  c.resetCrowd();
   
   
 }
