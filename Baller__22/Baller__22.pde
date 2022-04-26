@@ -1,5 +1,6 @@
 int homeScore;
 int awayScore;
+
 color rapColor = color(0,0,255);
 color sixColor = color(255,0,0);
 
@@ -11,7 +12,6 @@ Crowd c = new Crowd(raptors, sixers);
 void setup() {
   size(800,600);
   c.initialCrowd();
-  
 }
 
 void draw(){
